@@ -59,7 +59,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
   };
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope, $http) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -68,10 +68,9 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  };
+  $http.get('http://localhost:8100/psas').success(function(data) {
+    console.log("Success!");
+  })
 })
 
 .controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
