@@ -32,9 +32,7 @@ exports.list = function(req, res, next) {
             });
         }
         else {
-            res.render('psas', {
-                psas: psas
-            });
+            res.json(psas);
         }
     });
 };

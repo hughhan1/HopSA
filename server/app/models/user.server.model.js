@@ -14,7 +14,7 @@ var UserSchema = new Schema({
 	provider: String,
 	providerId: String,
 	providerData: {},
-	todos: {}//we will use this in the next tutorial to store TODOs
+	psas: {}
 });
 
 UserSchema.pre('save', 

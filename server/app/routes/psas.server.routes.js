@@ -10,5 +10,5 @@ module.exports = function(app) {
     	.put(psas.update)
     	.delete(psas.delete);
 
-    app.param('psaId', psas.psaByID);
+    //app.param('psaId', psas.psaByID);
 };

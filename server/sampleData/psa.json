@@ -1,0 +1,10 @@
+{
+    "user": "sampleuser",
+    "name": "ALL NIGHTERS PARTY!",
+    "description": "come thru!",
+    "location": {
+    	"name": "All Nighters House",
+    	"lat": 40,
+        "lon": 40
+    }
+}
