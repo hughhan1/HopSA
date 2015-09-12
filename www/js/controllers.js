@@ -1,6 +1,11 @@
-angular.module('starter.controllers', [])
+angular.module('starter.controllers', ['ui.router'])
 
-.controller('DashCtrl', function($scope, $ionicLoading) {
+.controller('DashCtrl', function($state, $scope, $ionicLoading) {
+  $scope.newPSA = function() {
+      console.log("transferring")
+      $state.go('addPSA', {})
+  }
+
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
@@ -27,6 +32,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AddPSACtrl', function($scope, $ionicLoading) {
+  
+
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };

@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ui.router'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,6 +22,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   });
 })
+
+/*.factory('AddNewPSA', function() {
+  return {
+    newPSA: function($stateProvider) {
+      console.log("transferring")
+      $state.go('addPSA')
+    }
+  }
+}) */
 
 .config(function($stateProvider, $urlRouterProvider) {
 
@@ -55,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     url:'/addPSA',
     views: {
       'tab-dash': {
-        tempalteUrl: '',
+        templateUrl: '',
         controller: 'AddPSACtrl'
       }
     }
