@@ -1,9 +1,9 @@
-angular.module('starter.controllers', ['ui.router', 'ionic'])
+angular.module('starter.controllers', ['ui.router', 'ionic', ])
 
 .controller('DashCtrl', function($state, $scope, $ionicLoading) {
   $scope.newPSA = function() {
       console.log("transferring")
-      $state.go('addPSA')
+      $state.transitionTo("tab.chats")
   }
 
   $scope.mapCreated = function(map) {
@@ -32,8 +32,6 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
 })
 
 .controller('AddPSACtrl', function($scope, $ionicLoading) {
-  
-
   $scope.mapCreated = function(map) {
     $scope.map = map;
   };
