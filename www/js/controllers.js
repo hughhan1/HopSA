@@ -1,9 +1,9 @@
-angular.module('starter.controllers', ['ui.router'])
+angular.module('starter.controllers', ['ui.router', 'ionic'])
 
 .controller('DashCtrl', function($state, $scope, $ionicLoading) {
   $scope.newPSA = function() {
       console.log("transferring")
-      $state.go('addPSA', {})
+      $state.go('addPSA')
   }
 
   $scope.mapCreated = function(map) {
