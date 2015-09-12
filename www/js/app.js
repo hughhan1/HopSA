@@ -38,6 +38,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     templateUrl: 'templates/tabs.html'
   })
 
+
   // Each tab has its own nav history stack:
 
   .state('tab.dash', {
@@ -46,6 +47,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       'tab-dash': {
         templateUrl: 'templates/map.html',
         controller: 'DashCtrl'
+      }
+    }
+  })
+
+  .state('addPSA', {
+    url:'/addPSA',
+    views: {
+      'tab-dash': {
+        tempalteUrl: '',
+        controller: 'AddPSACtrl'
       }
     }
   })
