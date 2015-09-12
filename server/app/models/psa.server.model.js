@@ -5,7 +5,7 @@ var PsaSchema = new Schema({
     user: {
         type: String,
         required: true
-    }
+    },
     name: {
         type: String,
         required: true
@@ -19,7 +19,6 @@ var PsaSchema = new Schema({
     	name: String,
     	lat: Number,
         lon: Number,
-        required: true
     }
 });
 
