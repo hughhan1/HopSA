@@ -1,0 +1,12 @@
+<ion-view view-title="Add PSA">
+	<ion-nav-buttons side="right">
+		<button class="button button-icon ion-save" ng-click="newPSA"> </button>
+	</ion-nav-buttons>
+	<ion-content scroll="false">
+		<map on-create="mapCreated(map)"></map>
+	</ion-content>
+
+	<ion-footer-bar class="bar-stable">
+		<a ng-click="centerOnMe()" class="button button-icon icon ion-navigate"></a>
+	</ion-footer-bar>
+</ion-view>

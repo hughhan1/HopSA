@@ -1,5 +1,25 @@
 angular.module('starter.services', [])
 
+.factory('Events', function($firebaseArray) {
+
+  // Acces events stored in Firebase
+  var events = new Firebase("https://hopsa.firebaseio.com/events");
+
+  return {
+    all: function() {
+      $firebaseArray(events);
+    },
+    get: function(eventId) {
+      // get from Firebase
+    },
+    remove: function(eventId) {
+      // remove a single element
+    },
+    clear: function() {
+      events.remove();
+    }
+  }
+})
 
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -49,3 +69,4 @@ angular.module('starter.services', [])
     }
   };
 });
+
