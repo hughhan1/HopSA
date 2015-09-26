@@ -1,0 +1,9 @@
+{
+  "firebase": "hopsa",
+  "public": "www",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

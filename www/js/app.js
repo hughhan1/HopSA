@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.directives', 'ui.router'])
+angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.services', 'starter.directives', 'ui.router'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -22,15 +22,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
   });
 })
-
-/*.factory('AddNewPSA', function() {
-  return {
-    newPSA: function($stateProvider) {
-      console.log("transferring")
-      $state.go('addPSA')
-    }
-  }
-}) */
 
 .config(function($stateProvider, $urlRouterProvider) {
   
@@ -50,24 +41,24 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
-    url: '/dash',
+  .state('tab.map', {
+    url: '/map',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/map.html',
-        controller: 'DashCtrl'
+      'tab-map': {
+        templateUrl: 'templates/tab-map.html',
+        controller: 'MapCtrl'
       }
     }
   })
 
-  .state('addPSA', {
-    url:'/addPSA',
-    views: {
-      'tab-dash': {
-        templateUrl: '',
-        controller: 'AddPSACtrl'
+  .state('tab.events', {
+    url: '/events',
+      views: {
+        'tab-events': {
+          templateUrl: 'templates/tab-events.html',
+          controller: 'EventsCtrl'
+        }
       }
-    }
   })
 
   .state('tab.chats', {
@@ -100,6 +91,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/map');
 
 });
