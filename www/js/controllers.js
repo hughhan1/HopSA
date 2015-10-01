@@ -1,10 +1,10 @@
 angular.module('starter.controllers', ['ui.router', 'ionic'])
 
-.controller('SignupCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('SignupCtrl', function($scope, AuthService, $ionicPopup, $state) {
     $scope.data = {};
 
     $scope.signup = function() {
-        LoginService.createUser($scope.data.firstName, $scope.data.lastName, $scope.data.email, $scope.data.password).success(function(data) {
+        AuthService.createUser($scope.data.firstName, $scope.data.lastName, $scope.data.email, $scope.data.password).success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
@@ -15,7 +15,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 
     $scope.signupFacebook = function() {
-        LoginService.loginUserFacebook().success(function(data) {
+        AuthService.loginUserFacebook().success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
@@ -30,11 +30,11 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 })
 
-.controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
+.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
     $scope.data = {};
  
     $scope.login = function() {
-        LoginService.loginUser($scope.data.email, $scope.data.password).success(function(data) {
+        AuthService.loginUser($scope.data.email, $scope.data.password).success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
@@ -45,7 +45,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 
     $scope.loginFacebook = function() {
-        LoginService.loginUserFacebook().success(function(data) {
+        AuthService.loginUserFacebook().success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({

@@ -27,7 +27,7 @@ angular.module('starter.services', [])
 */
 
 /* Using Firebase data */
-.service('LoginService', function($q) {
+.service('AuthService', function($q) {
 
     var ref = new Firebase("https://hopsa.firebaseio.com");
 
