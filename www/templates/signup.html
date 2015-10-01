@@ -1,0 +1,30 @@
+<ion-view view-title="Signup" name="signup-view">
+  <ion-content class="padding">
+      <div class="list list-inset">
+          <label class="item item-input">
+              <input type="text" placeholder="First Name" ng-model="data.firstName">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Last Name" ng-model="data.lastName">
+          </label>
+          <label class="item item-input">
+              <input type="text" placeholder="Email" ng-model="data.email">
+          </label>
+          <label class="item item-input">
+              <input type="password" placeholder="Password" ng-model="data.password">
+          </label>
+      </div>
+
+      <div class="row">
+        <button class="button button-block button-light" ng-click="signup()">Sign Up</button>
+        <div class="col">
+          <!-- This is just a hacky way to put some whitespace between the two buttons. -->
+        </div>
+        <button class="button button-block button-positive" ng-click="signupFacebook()">Sign Up with Facebook</button>
+      </div>
+      Already have an account?
+      <button class="button button-clear button-stable" ng-click="login()">
+        Log In
+      </button>
+  </ion-content>
+</ion-view>

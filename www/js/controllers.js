@@ -1,10 +1,40 @@
 angular.module('starter.controllers', ['ui.router', 'ionic'])
 
+.controller('SignupCtrl', function($scope, LoginService, $ionicPopup, $state) {
+    $scope.data = {};
+
+    $scope.signup = function() {
+        LoginService.createUser($scope.data.firstName, $scope.data.lastName, $scope.data.email, $scope.data.password).success(function(data) {
+            $state.go('tab.map');
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed.',
+                template: 'Please check your credentials.'
+            });
+        });
+    }
+
+    $scope.signupFacebook = function() {
+        LoginService.loginUserFacebook().success(function(data) {
+            $state.go('tab.map');
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed.',
+                template: 'Please check your credentials.'
+            });
+        });
+    }
+
+    $scope.login = function() {
+        $state.go('login');
+    }
+})
+
 .controller('LoginCtrl', function($scope, LoginService, $ionicPopup, $state) {
     $scope.data = {};
  
     $scope.login = function() {
-        LoginService.loginUser($scope.data.username, $scope.data.password).success(function(data) {
+        LoginService.loginUser($scope.data.email, $scope.data.password).success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
@@ -26,14 +56,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 
     $scope.signup = function() {
-        LoginService.createUser($scope.data.username, $scope.data.password).success(function(data) {
-            $state.go('tab.map');
-        }).error(function(data) {
-            var alertPopup = $ionicPopup.alert({
-                title: 'Login failed.',
-                template: 'Please check your credentials.'
-            });
-        });
+        $state.go('signup');
     }
 })
 
