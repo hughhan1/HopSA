@@ -26,10 +26,17 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 })
 
-.controller('MapCtrl', function($state, $scope, $ionicLoading) {
-    $scope.newPSA = function() {
-        console.log("transferring")
-        $state.go('addPSA')
+.controller('MapCtrl', function($state, $scope, $ionicLoading, Events) {
+
+    $scope.events = Events.all();
+
+    $scope.addEvent = function() {
+        var name = prompt("Create an event.");
+        if (name) {
+            $scope.events.$add({
+                "name": name
+            });
+        }
     }
 
     $scope.mapCreated = function(map) {
@@ -57,8 +64,19 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     };
 })
 
-.controller('EventsCtrl', function($scope, Events) {
+.controller('ListCtrl', function($scope, Events) {
+
     $scope.events = Events.all();
+
+    $scope.addEvent = function() {
+        var name = prompt("Create an event.");
+        if (name) {
+            $scope.events.$add({
+                "name": name
+            });
+        }
+    }
+
     $scope.remove = function(event) {
         Events.remove(event);
     }

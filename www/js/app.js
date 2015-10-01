@@ -62,7 +62,7 @@ angular.module('starter', ['ionic', 'firebase', 'starter.controllers', 'starter.
         views: {
             'tab-events': {
                 templateUrl: 'templates/tab-events.html',
-                controller: 'EventsCtrl'
+                controller: 'ListCtrl'
             }
         }
     })
