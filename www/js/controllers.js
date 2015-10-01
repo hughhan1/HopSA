@@ -14,6 +14,17 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
         });
     }
 
+    $scope.loginFacebook = function() {
+        LoginService.loginUserFacebook().success(function(data) {
+            $state.go('tab.map');
+        }).error(function(data) {
+            var alertPopup = $ionicPopup.alert({
+                title: 'Login failed.',
+                template: 'Please check your credentials.'
+            });
+        });
+    }
+
     $scope.signup = function() {
         LoginService.createUser($scope.data.username, $scope.data.password).success(function(data) {
             $state.go('tab.map');

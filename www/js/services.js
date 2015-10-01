@@ -29,13 +29,13 @@ angular.module('starter.services', [])
 /* Using Firebase data */
 .service('LoginService', function($q) {
 
-    var ref = new Firebase("https://hopsa.firebaseio.com")
+    var ref = new Firebase("https://hopsa.firebaseio.com");
+
+    var deferred = $q.defer();
+    var promise = deferred.promise;
 
     return {
-        loginUser: function(email, pw) {
-            var deferred = $q.defer();
-            var promise = deferred.promise;
- 
+        loginUser: function(email, pw) { 
             if (!email) {
                 deferred.reject("Please enter an email.");
             } else if (!pw) {
@@ -62,10 +62,25 @@ angular.module('starter.services', [])
             }
             return promise;
         },
+        loginUserFacebook: function() {
+            ref.authWithOAuthPopup("facebook", function(error, authData) {
+                if (error) {
+                    deferred.reject("Login Failed.");
+                } else {
+                    deferred.resolve("Welcome " + authData + "!");
+                }
+            });
+            promise.success = function(fn) {
+                promise.then(fn);
+                return promise;
+            }
+            promise.error = function(fn) {
+                promise.then(null, fn);
+                return promise;
+            }
+            return promise;
+        },
         createUser: function(email, pw) {
-            var deferred = $q.defer();
-            var promise = deferred.promise;
-
             if (!email) {
                 deferred.reject("Please enter an email.");
             } else if (!pw) {
