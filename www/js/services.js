@@ -92,24 +92,9 @@ angular.module('starter.services', [])
  * @param $firebaseArray
  */
 .factory('Events', function($firebaseArray) {
-
     // Acces events stored in Firebase
     var events = new Firebase("https://hopsa.firebaseio.com/events");
-
-    return {
-        all: function() {
-            $firebaseArray(events);
-        },
-        get: function(eventId) {
-            // get from Firebase
-        },
-        remove: function(eventId) {
-            // remove a single element
-        },
-        clear: function() {
-            events.remove();
-        }
-    }
+    return $firebaseArray(events);
 })
 
 .factory('Chats', function() {

@@ -1,4 +1,7 @@
-<ion-view view-title="Events">
+<ion-view view-title="Events" name="events-view">
+  <ion-nav-buttons side="right">
+    <ion-option-button class="button button-icon ion-plus" ng-click="addEvent()">
+  </ion-nav-buttons>
   <ion-content>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/events/{{event.id}}">

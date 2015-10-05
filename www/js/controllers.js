@@ -88,7 +88,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
  */
 .controller('MapCtrl', function($scope, $state, $ionicLoading, Events) {
 
-    $scope.events = Events.all();
+    $scope.events = Events;
 
     $scope.addEvent = function() {
         var name = prompt("Create an event.");
@@ -137,7 +137,7 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
  */
 .controller('ListCtrl', function($scope, Events) {
 
-    $scope.events = Events.all();
+    $scope.events = Events;
 
     $scope.addEvent = function() {
         var name = prompt("Create an event.");
@@ -150,9 +150,14 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
         }
     }
 
-    $scope.remove = function(eventId) {
-        Events.remove(eventId);
+    $scope.remove = function(event) {
+        Events.remove(event);
     }
+})
+
+.controller('EventDetailCtrl', function($scope, $stateParams, Events) {
+    $scope.events = Events;
+    $scope.event = Events.get($stateParams.eventId);
 })
 
 .controller('ChatsCtrl', function($scope, Chats) {

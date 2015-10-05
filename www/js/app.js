@@ -73,6 +73,16 @@ angular.module('starter', ['ionic','ionic.service.core', 'firebase', 'starter.co
         }
     })
 
+    .state('tab.event-detail', {
+        url: '/events/:eventId',
+        views: {
+            'tab-events': {
+                templateUrl: 'templates/event-detail.html',
+                controller: 'EventDetailCtrl'
+            }
+        }
+    })
+
     .state('tab.chats', {
         url: '/chats',
         views: {
