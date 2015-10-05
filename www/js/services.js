@@ -1,32 +1,9 @@
 angular.module('starter.services', [])
 
-/* Using fake data
-.service('LoginService', function($q) {
-    return {
-        loginUser: function(name, pw) {
-            var deferred = $q.defer();
-            var promise = deferred.promise;
- 
-            if (name == 'user' && pw == 'secret') {
-                deferred.resolve('Welcome ' + name + '!');
-            } else {
-                deferred.reject('Wrong credentials.');
-            }
-            promise.success = function(fn) {
-                promise.then(fn);
-                return promise;
-            }
-            promise.error = function(fn) {
-                promise.then(null, fn);
-                return promise;
-            }
-            return promise;
-        }
-    }
-})
-*/
-
-/* Using Firebase data */
+/**
+ * Service containing methods to login or signup a user.
+ * @param $q
+ */
 .service('AuthService', function($q) {
 
     var ref = new Firebase("https://hopsa.firebaseio.com");
@@ -110,6 +87,10 @@ angular.module('starter.services', [])
     }
 })
 
+/**
+ * Collection of events, stored in Firebase
+ * @param $firebaseArray
+ */
 .factory('Events', function($firebaseArray) {
 
     // Acces events stored in Firebase

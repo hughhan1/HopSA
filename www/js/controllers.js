@@ -1,10 +1,22 @@
 angular.module('starter.controllers', ['ui.router', 'ionic'])
 
-.controller('SignupCtrl', function($scope, AuthService, $ionicPopup, $state) {
+/**
+ * Controller for the login view. On a successful login, this redirects to the tab-map view.
+ * @param $scope
+ * @param $state
+ * @param $ionicPopup
+ * @param AuthService authentication service that sends and retrieves data from a Firebase collection of users
+ */
+.controller('SignupCtrl', function($scope, $state, $ionicPopup, AuthService) {
     $scope.data = {};
 
     $scope.signup = function() {
-        AuthService.createUser($scope.data.firstName, $scope.data.lastName, $scope.data.email, $scope.data.password).success(function(data) {
+        AuthService.createUser(
+            $scope.data.firstName, 
+            $scope.data.lastName, 
+            $scope.data.email, 
+            $scope.data.password
+        ).success(function(data) {
             $state.go('tab.map');
         }).error(function(data) {
             var alertPopup = $ionicPopup.alert({
@@ -30,7 +42,14 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 })
 
-.controller('LoginCtrl', function($scope, AuthService, $ionicPopup, $state) {
+/**
+ * Controller for the login view. On a successful login, this redirects to the tab-map view.
+ * @param $scope
+ * @param $state
+ * @param $ionicPopup
+ * @param AuthService
+ */
+.controller('LoginCtrl', function($scope, $state, $ionicPopup, AuthService) {
     $scope.data = {};
  
     $scope.login = function() {
@@ -60,17 +79,30 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     }
 })
 
-.controller('MapCtrl', function($state, $scope, $ionicLoading, Events) {
+/**
+ * Controller for the tab-map view. This is a map with all of the existing events.
+ * @param $scope
+ * @param $state
+ * @param $ionicLoading
+ * @param Events reference to a collection of events from Firebase
+ */
+.controller('MapCtrl', function($scope, $state, $ionicLoading, Events) {
 
     $scope.events = Events.all();
 
     $scope.addEvent = function() {
         var name = prompt("Create an event.");
+        var description = prompt("Add a description.");
         if (name) {
             $scope.events.$add({
-                "name": name
+                "name": name,
+                "description": description
             });
         }
+    }
+
+    $scope.remove = function(eventId) {
+        Events.remove(eventId);
     }
 
     $scope.mapCreated = function(map) {
@@ -98,21 +130,28 @@ angular.module('starter.controllers', ['ui.router', 'ionic'])
     };
 })
 
+/**
+ * Controller for the tab-events view. This is a list of all of the existing events.
+ * @param $scope
+ * @param Events reference to a collection of events from Firebase
+ */
 .controller('ListCtrl', function($scope, Events) {
 
     $scope.events = Events.all();
 
     $scope.addEvent = function() {
         var name = prompt("Create an event.");
+        var description = prompt("Add a description.");
         if (name) {
             $scope.events.$add({
-                "name": name
+                "name": name,
+                "description": description
             });
         }
     }
 
-    $scope.remove = function(event) {
-        Events.remove(event);
+    $scope.remove = function(eventId) {
+        Events.remove(eventId);
     }
 })
 
