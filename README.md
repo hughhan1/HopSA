@@ -1,6 +1,8 @@
 # HopSA
 
-This is an app being built using the Ionic framework and Firebase backend service. It was started at the Fall 2015 [HopHacks](https://hophacks.com) at Johns Hopkins University.
+HopSA allows users to find the hottest events going on around them, created by other users of the platform. 
+
+This was an app that was built using the [MEAN stack](http://mean.io/#!/). It was started at the Fall 2015 [HopHacks](https://hophacks.com) at Johns Hopkins University.
 
 ### Updates ###
 
