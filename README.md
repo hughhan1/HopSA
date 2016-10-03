@@ -1,6 +1,16 @@
 # HopSA
 
-This is an app being built using the Ionic framework and Firebase backend service. This app was started at the Fall 2015 [HopHacks](https://hophacks.com) at Johns Hopkins University.
+This is an app being built using the Ionic framework and Firebase backend service. It was started at the Fall 2015 [HopHacks](https://hophacks.com) at Johns Hopkins University.
 
 ### Updates ###
-This project is no longer being built using Ionic and Firebase. It has moved to Swift and Parse, and is being worked on in stealth mode. The anticipated release date for iOS will be Fall 2016. 
+
+HopSA has been renamed to DashTo.
+
+This version of the project is no longer being built. We've come a long way since then, and the new version of the product (currently in beta) is being built for iOS, and can be viewed here: http://facebook.com/dashtoapp.
+
+The new codebase is currently private, but we have decided to keep this repository public and the original app live (viewable [here](http://hopkinspsatest.herokuapp.com)) for memories sake.
+
+#### Original Team ####
+- Hugh Han
+- Alex Irikura
+- Ryan Marren
